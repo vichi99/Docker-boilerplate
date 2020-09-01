@@ -4,6 +4,7 @@
 
 
 - ## Create react app with typescript
+    In my case I need use `sudo`.
 
         $ /bin/bash node_cmd.sh 12 npx create-react-app my-app --template typescript
 
