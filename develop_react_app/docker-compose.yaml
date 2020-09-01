@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  frontend:
+    container_name: ui_container_name
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app
+      - /app/node_modules # important for correct view node_modules from container
+    tty: true
+    stdin_open: true
+    command: ["yarn", "start"]
