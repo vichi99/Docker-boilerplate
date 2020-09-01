@@ -89,6 +89,18 @@ After spent some hours by make mistakes with develop apps I decided write some u
   docker search [name-image] //search current image at docker repo
 
   docker pull [name-image] // pull current image into docker local directory
+  
+  docker-compose up                 // create and start containers
+  docker-compose -d up              // start services with detached mode
+  docker-compose up <service-name>  // start specific service
+  docker-compose images             // list images
+  docker-compose ps                 // list containers
+  docker-compose start              // start service
+  docker-compose stop               // stop services
+  docker-compose top                // display running containers
+  docker-compose kill               // kill services
+  docker-compose rm                 // remove stopped containers
+  docker-compose down               // stop all contaners and remove images, volumes
   ```
 
   - [How To Remove Docker Images, Containers, and Volumes - commands](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
