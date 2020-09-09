@@ -21,10 +21,10 @@ After spent some hours by make mistakes with develop apps I decided write some u
     \$ docker-compose up
   - For add some node packages into current container -> connect only into started container with `exec`. Our case name of services is `frontend`. At documentation I found write a container-name, but I don't know for me is only working with service name. Sometime you have to reload scripts in repository by `ctrl (cmd) + s`
 
-        # add dependencies
-        $ docker-compose exec -it frontend yarn add axios
+        # add dependencies - use `-f` if you want use different docker-compose then default.
+        $ docker-compose -f docker-compose.dev.yaml exec frontend yarn add axios
         # connect into shell
-        $ docker-compose exec -it frontend sh
+        $ docker-compose -f docker-compose.dev.yaml exec frontend sh
 
 # Tips
 
