@@ -78,6 +78,8 @@ After spent some hours by make mistakes with develop apps I decided write some u
 
   docker rmi $(docker images -a -q) //remove all images
 
+  docker rmi $(docker images -f "dangling=true" -q) // remove all none images
+
   docker rm $(docker ps -a -f status=exited -q) //remove all exited containers
 
   docker volume ls //list of volumes
@@ -89,6 +91,12 @@ After spent some hours by make mistakes with develop apps I decided write some u
   docker search [name-image] //search current image at docker repo
 
   docker pull [name-image] // pull current image into docker local directory
+
+  docker system prune // WARNING! This will remove:
+                      - all stopped containers
+                      - all volumes not used by at least one container
+                      - all networks not used by at least one container
+                      - all dangling images
   
   docker-compose up                 // create and start containers
   docker-compose -d up              // start services with detached mode
@@ -100,7 +108,7 @@ After spent some hours by make mistakes with develop apps I decided write some u
   docker-compose top                // display running containers
   docker-compose kill               // kill services
   docker-compose rm                 // remove stopped containers
-  docker-compose down               // stop all contaners and remove images, volumes
+  docker-compose down               // stop and remove all containers by docker-compose file (-v add clear volumes)
   ```
 
   - [How To Remove Docker Images, Containers, and Volumes - commands](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
