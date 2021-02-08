@@ -110,6 +110,14 @@ After spent some hours by make mistakes with develop apps I decided write some u
   docker-compose kill               // kill services
   docker-compose rm                 // remove stopped containers
   docker-compose down               // stop and remove all containers by docker-compose file (-v add clear volumes)
+
+  # Backup and restore a mysql database from a running Docker mysql container
+  # source https://gist.github.com/spalladino/6d981f7b33f6e0afe6bb
+  # Backup
+  docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > backup.sql
+  # Restore
+  cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE
+
   ```
 
   - [How To Remove Docker Images, Containers, and Volumes - commands](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
